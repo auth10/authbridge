@@ -1,2 +1,2 @@
 [config]
-project = AuthBridge.Web
+project = src\AuthBridge.Web
