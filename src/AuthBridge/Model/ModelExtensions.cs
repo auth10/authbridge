@@ -35,7 +35,6 @@
                 Identifier = new Uri(claimProvider.Name),
                 Url = new Uri(claimProvider.Uri),
                 Protocol = claimProvider.ProtocolHandler,
-                Profile = claimProvider.Profile,
                 Parameters = claimProvider.Params.ToModel()
             };
         }

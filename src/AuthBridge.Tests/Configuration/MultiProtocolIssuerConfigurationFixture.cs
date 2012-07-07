@@ -26,14 +26,10 @@
             Assert.AreEqual("provider0", configuration.ClaimProviders[0].Name);
             Assert.AreEqual("https://providerurl0", configuration.ClaimProviders[0].Uri);
             Assert.AreEqual("protocolHandler0", configuration.ClaimProviders[0].ProtocolHandler);
-            Assert.AreEqual("profileA", configuration.ClaimProviders[0].Profile);
-            Assert.AreEqual(true, configuration.ClaimProviders[0].AllowCompleteProfileForm);
 
             Assert.AreEqual("provider1", configuration.ClaimProviders[1].Name);
             Assert.AreEqual("https://providerurl1", configuration.ClaimProviders[1].Uri);
             Assert.AreEqual("protocolHandler1", configuration.ClaimProviders[1].ProtocolHandler);
-            Assert.AreEqual("profileB", configuration.ClaimProviders[1].Profile);
-            Assert.AreEqual(false, configuration.ClaimProviders[1].AllowCompleteProfileForm);
         }
 
         [TestMethod]

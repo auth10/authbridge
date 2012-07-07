@@ -23,18 +23,6 @@
             get { return (string)this["protocolHandler"]; }
         }
 
-        [ConfigurationProperty("profile", IsRequired = false)]
-        public string Profile
-        {
-            get { return (string)this["profile"]; }
-        }
-
-        [ConfigurationProperty("allowCompleteProfileForm", IsRequired = false)]
-        public bool AllowCompleteProfileForm
-        {
-            get { return (bool)this["allowCompleteProfileForm"]; }
-        }
-
         [ConfigurationProperty("params", IsRequired = false)]
         [ConfigurationCollection(typeof(ParameterCollection))]
         public ParameterCollection Params
