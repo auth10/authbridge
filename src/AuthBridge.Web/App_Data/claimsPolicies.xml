@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<scopes>
+  <scope uri="http://sample-with-policyengine/">
+    <claimTypes>
+      <claimType fullName="http://schemas.google.com/email" displayName="google.email" />
+      
+      <claimType fullName="http://schemas.yahoo.com/email" displayName="yahoo.email" />
+      <claimType fullName="http://schemas.yahoo.com/fullName" displayName="yahoo.fullName"  />
+      
+      <claimType fullName="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" displayName="givenname"/>
+      <claimType fullName="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" displayName="email"/>
+      <claimType fullName="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/gender" displayName="gender" />
+      <claimType fullName="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" displayName="name" />
+      <claimType fullName="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" displayName="nameidentifier" />
+
+      <claimType fullName="http://schemas.facebook.com/me/id" displayName="facebook.id"/>
+      <claimType fullName="http://schemas.facebook.com/me/username" displayName="facebook.username"/>
+      <claimType fullName="http://schemas.facebook.com/me/name" displayName="facebook.name"/>
+      <claimType fullName="http://schemas.facebook.com/me/link" displayName="facebook.link"/>
+      <claimType fullName="http://schemas.facebook.com/me/gender" displayName="facebook.gender"/>
+      <claimType fullName="http://schemas.facebook.com/me/accesstoken" displayName="facebook.accesstoken"/>
+
+      <claimType fullName="http://schemas.twitter.com/accesstoken" displayName="twitter.accesstoken" />
+      <claimType fullName="http://schemas.twitter.com/name" displayName="twitter.name" />
+      <claimType fullName="http://schemas.twitter.com/location" displayName="twitter.location" />
+      <claimType fullName="http://schemas.twitter.com/description" displayName="twitter.description" />
+      <claimType fullName="http://schemas.twitter.com/url" displayName="twitter.url" />
+
+      <claimType fullName="http://schemas.live.com/id" displayName="live.id" />
+      <claimType fullName="http://schemas.live.com/username" displayName="live.username" />
+      <claimType fullName="http://schemas.live.com/name" displayName="live.name" />
+      <claimType fullName="http://schemas.live.com/firstname" displayName="live.firstname" />
+      <claimType fullName="http://schemas.live.com/lastname" displayName="live.lastname" />
+      <claimType fullName="http://schemas.live.com/accesstoken" displayName="live.accesstoken" />
+
+    </claimTypes>
+    <issuers>
+      <issuer uri="urn:Yahoo" thumbprint="" displayName="Yahoo"/>
+      <issuer uri="urn:LiveId" thumbprint="" displayName="LiveId"/>
+      <issuer uri="urn:Facebook" thumbprint="" displayName="Facebook"/>
+      <issuer uri="urn:Twitter" thumbprint="" displayName="Twitter"/>
+      <issuer uri="urn:Google" thumbprint="" displayName="Google"/>
+    </issuers>
+    <rules>
+      <rule assertionsMatch="any">
+        <input>
+          <claim type="yahoo.fullName" issuer="Yahoo" value="*"/>
+        </input>
+        <output type="givenname" copyFrom="INPUT_VALUE"/>
+      </rule>
+      <rule assertionsMatch="any">
+        <input>
+          <claim type="nameidentifier" issuer="Yahoo" value="*"/>
+        </input>
+        <output type="nameidentifier" copyFrom="INPUT_VALUE"/>
+      </rule>
+      <rule assertionsMatch="any">
+        <input>
+          <claim type="yahoo.email" issuer="Yahoo" value="*"/>
+        </input>
+        <output type="email" copyFrom="INPUT_VALUE"/>
+      </rule>
+
+      <rule assertionsMatch="any">
+        <input>
+          <claim type="nameidentifier" issuer="LiveId" value="*"/>
+        </input>
+        <output type="nameidentifier" copyFrom="INPUT_VALUE"/>
+      </rule>
+      <rule assertionsMatch="any">
+        <input>
+          <claim type="live.name" issuer="LiveId" value="*"/>
+        </input>
+        <output type="name" copyFrom="INPUT_VALUE"/>
+      </rule>
+
+      <rule assertionsMatch="any">
+        <input>
+          <claim type="nameidentifier" issuer="Facebook" value="*"/>
+        </input>
+        <output type="nameidentifier" copyFrom="INPUT_VALUE"/>
+      </rule>
+      <rule assertionsMatch="any">
+        <input>
+          <claim type="facebook.name" issuer="Facebook" value="*"/>
+        </input>
+        <output type="name" copyFrom="INPUT_VALUE"/>
+      </rule>
+      <rule assertionsMatch="any">
+        <input>
+          <claim type="facebook.username" issuer="Facebook" value="*"/>
+        </input>
+        <output type="email" copyFrom="INPUT_VALUE"/>
+      </rule>
+
+      <rule assertionsMatch="any">
+        <input>
+          <claim type="nameidentifier" issuer="Twitter" value="*"/>
+        </input>
+        <output type="nameidentifier" copyFrom="INPUT_VALUE"/>
+      </rule>
+      <rule assertionsMatch="any">
+        <input>
+          <claim type="twitter.name" issuer="Twitter" value="*"/>
+        </input>
+        <output type="name" copyFrom="INPUT_VALUE"/>
+      </rule>
+      
+      <rule assertionsMatch="any">
+        <input>
+          <claim type="nameidentifier" issuer="Google" value="*"/>
+        </input>
+        <output type="nameidentifier" copyFrom="INPUT_VALUE"/>
+      </rule>
+      <rule assertionsMatch="any">
+        <input>
+          <claim type="google.email" issuer="Google" value="*"/>
+        </input>
+        <output type="email" copyFrom="INPUT_VALUE"/>
+      </rule>
+
+    </rules>
+  </scope>  
+</scopes>
