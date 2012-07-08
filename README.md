@@ -33,7 +33,7 @@ git clone https://github.com/auth10/authbridge.git
 
 ### How it compares with [DotNetOpenAuth](http://www.dotnetopenauth.net)?
 
-[DotNetOpenAuth](http://www.dotnetopenauth.net) is a library that simplifies writing OAuth and OpenID clients and servers. AuthBridge builds on top of it and adds support for WS-Federation protocol with SAML tokens which is generally used across Microsoft products like SharePoint, Windows Azure Active Directory, ASP.NET, etc. AuthBridge is a library and a server at the same time that will run on its own host to act as a federation hub between your applications and identity providers.
+[DotNetOpenAuth](http://www.dotnetopenauth.net) is a library that simplifies writing OAuth and OpenID clients and servers. AuthBridge builds on top of it and adds support for the WS-Federation protocol with SAML tokens which is generally used across Microsoft products like SharePoint, Windows Azure Active Directory, ASP.NET, etc. AuthBridge is a library and a server at the same time that will run on its own host to act as a federation hub between your applications and identity providers.
 
 ### How it compares with [SocialAuth.NET](http://code.google.com/p/socialauth-net/)?
 
