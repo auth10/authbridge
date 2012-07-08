@@ -49,10 +49,6 @@ Also, in the future WAAD will also provide a "Graph" API and syncronization capa
 
 [Auth10](http://auth10.com) is a set of tools that aim at dramatically simplifying the adoption of federated idenitity solutions. It provides automation for the most common scenarios (e.g. SharePoint, cloud, mobile, different platforms and languages, different identity providers, etc.). Think of Auth10 as a really smart dashboard on top of a Federation Provider. It currently runs on top of Windows Azure Active Directory but it could potentially run on top of other "Fedeation Providers" like ADFS or even AuthBridge.
 
-### How it compares with JanRain Engage?
-
-[JanRain](http://janrain.com/) provides a third party solution for handling Social Login, Social Sharing, Social Analytics and more with their Janrain Engage product. They will act as a hub between your apps and the social identity providers. It's similar in that sense to SocialAuth.NET and DotNetOpenAuth but it's a cloud service with all that means. AuthBridge is a library and a server that will provide some of the featuress of Janrain Engage (mostly on providing attributes for the user coming from the social identity providers) but Janrain implements a propietary protocol to get those into your app (it's a simple protocol based on HTTP). AuthBridge relies on WS-Federation, hence it is ideal to integrate with Microsoft-related stuff. 
-
 ### How it compares with IdentityServer?
 
 [IdentityServer](http://identityserver.codeplex.com/) is an identity provider that supports Membership provider databases and various protocols to get tokes out of it. It's complimentary to AuthBridge. If IdentityServer is the open source Identity Provider, AuthBridge is the open source Federation Provider. AuthBridge can be configured to trust IdentityServer as well as ADFS.
