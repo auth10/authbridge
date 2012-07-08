@@ -4,7 +4,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
-    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="/content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="/content/markdownize.css" rel="stylesheet" type="text/css" />
+    <script src="/scripts/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="/scripts/markdownize.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -12,19 +15,16 @@
 
         <div id="header">
             <div id="title">
-                <h1>Sample RP Application</h1>
+                <h1>AuthBridge sample app</h1>
             </div>
+                <% if (Request.IsAuthenticated) { %>
               
             <div id="logindisplay">
-                <%= Html.ActionLink("LogOut", "LogOut", "Home")%>
+                       Welcome <%= HttpContext.Current.User.Identity.Name %> &nbsp; <%= Html.ActionLink("LogOut", "LogOut", "Home")%>
             </div> 
+                   <% } %>
             
             <div id="menucontainer">
-            
-                <ul id="menu">              
-                    <li><%= Html.ActionLink("Secure", "Secure", "Home")%></li>
-                    <li><%= Html.ActionLink("Unsecure", "Unsecure", "Home")%></li>
-                </ul>
             
             </div>
         </div>

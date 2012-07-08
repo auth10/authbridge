@@ -9,32 +9,19 @@
     [HandleError]
     public class HomeController : Controller
     {
-        [ValidateInput(false)]
         public ActionResult UnSecure()
         {
             return View();
         }
 
-        [ValidateInput(false)]
-        [AuthenticateAndAuthorize(Realm = "http://sample-with-policyengine/")]
-        public ActionResult SecureWithPolicyEngine()
+        [AuthenticateAndAuthorize()]
+        public ActionResult MyClaims()
         {
             ViewData["Claims"] = ((IClaimsIdentity)User.Identity).Claims;
 
             return View("Secure");
         }
-
-        [ValidateInput(false)]
-        [AuthenticateAndAuthorize(Realm = "http://sample-without-policyengine/")]
-        public ActionResult SecureWithoutPolicyEngine()
-        {
-            ViewData["Claims"] = ((IClaimsIdentity)User.Identity).Claims;
-
-            return View("Secure");
-        }
-
-
-        [ValidateInput(false)]
+        
         public ActionResult LogOut()
         {
             var authModule = FederatedAuthentication.WSFederationAuthenticationModule;
