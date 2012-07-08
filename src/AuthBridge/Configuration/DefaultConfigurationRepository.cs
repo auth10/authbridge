@@ -36,7 +36,7 @@
             else
             {
                 var certRawData = File.ReadAllBytes(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, configuration.SigningCertificateFile.PfxFilePath));
-                cert = new X509Certificate2(certRawData, configuration.SigningCertificateFile.Password, X509KeyStorageFlags.PersistKeySet);
+                cert = new X509Certificate2(certRawData, configuration.SigningCertificateFile.Password, X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.MachineKeySet);
             }
             
             return new MultiProtocolIssuer
