@@ -1,8 +1,10 @@
 #AuthBridge
 
-An implementation of a bridge written in ASP.NET/C# using [WIF](http://msdn.microsoft.com/en-us/security/aa570351.aspx) and [DotNetOpenAuth](http://www.dotnetopenauth.net), that talks WS-Federation and SAML tokens on one side and OpenID, OAuth, WS-Federation or any other protocol on the identity provider.
+An implementation of a bridge written in ASP.NET/C# using [WIF](http://msdn.microsoft.com/en-us/security/aa570351.aspx) and [DotNetOpenAuth](http://www.dotnetopenauth.net), that talks WS-Federation and SAML tokens on one side and OpenID, OAuth, WS-Federation or any other protocol on the identity provider. 
 
 ![](http://puu.sh/GzU1)
+
+**DISCLAIMER:** AuthBridge has not gone through any rigorous testing and you are responsible for hosting it yourself. If you are looking for a production ready service Windows Azure Active Directory would be a good choice. 
 
 ##Features
 
@@ -39,9 +41,11 @@ git clone https://github.com/auth10/authbridge.git
 
 ### Deploy to the Cloud
 
-AuthBridge is ready to be deployed to .NET PaaS like AppHabor or Windows Azure Web Sites. Although currently there is an issue with Google OpenID provider and the discovery process in DotNetOpenAuth that throws an exception.
+AuthBridge is ready to be deployed to .NET PaaS like AppHabor or Windows Azure Web Sites. Although currently there is an issue with Google OpenID provider and the discovery process in DotNetOpenAuth that throws an exception in Windows Azure Web Sites.
 
-There is no database dependency since the configuration is stored on Web.config.
+Follow the instructions 3 and 4 above before deploying it.
+
+Note: there is no database dependency since the configuration is stored on Web.config. There is an extensibility point to change that but no db provider implemented yet.
 
 ##FAQ
 
@@ -67,13 +71,17 @@ Also, in the future WAAD will also provide a "Graph" API and syncronization capa
 
 [IdentityServer](http://identityserver.codeplex.com/) is an identity provider that supports Membership provider databases and various protocols to get tokes out of it. It's complimentary to AuthBridge. If IdentityServer is the open source Identity Provider, AuthBridge is the open source Federation Provider. AuthBridge can be configured to trust IdentityServer as well as ADFS.
 
-## Known Issues
+## TODO
 
-* Single sign on is not working properly with web applications hosted in localhost.
-* The allowedClaimProviders configuration does not alter the behavior of the STS
 * Exception handling can be enhanced with more detailed errors
 * No performance/stress test has been done
 * No threats and countermeasures analysis has been done
+* Allow configuring allowed identity providers per application
+* Signing federation context cookie to avoid tampering
+* Implement a config provider that uses blob storage (like s3, azure)
+* Implement SAML protocol provider
+* Implement a database store for claim rules
+* Implement other protocols
 
 ## Credits
 
@@ -82,4 +90,4 @@ Some of the code was extracted from a proof of concept we did a couple of years 
 ## License
 
 MIT
-
+Copyright (2012) Auth10 LLC
