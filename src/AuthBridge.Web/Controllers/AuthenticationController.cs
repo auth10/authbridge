@@ -190,8 +190,8 @@
 
         private void CreateFederationContext()
         {
-            this.federationContext.OriginalUrl = this.HttpContext.GetRequestUrl().ToString();
-            this.federationContext.Realm = Request.QueryString[WSFederationConstants.Parameters.Realm];
+            this.federationContext.OriginalUrl = this.HttpContext.Request.Url.PathAndQuery;
+            this.federationContext.Realm = this.Request.QueryString[WSFederationConstants.Parameters.Realm];
             this.federationContext.IssuerName = this.Request.QueryString[WSFederationConstants.Parameters.HomeRealm];
         }
     }
