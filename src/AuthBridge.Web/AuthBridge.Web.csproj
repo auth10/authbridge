@@ -131,7 +131,7 @@
   <ItemGroup>
     <Compile Include="AllowTokenPostRequestValidator.cs" />
     <Content Include="packages.config" />
-    <None Include="test-certificate.pfx" />
+    <Content Include="test-certificate.pfx" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
