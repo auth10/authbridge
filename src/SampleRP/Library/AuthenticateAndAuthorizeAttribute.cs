@@ -17,11 +17,6 @@
 
         public void OnAuthorization(AuthorizationContext filterContext)
         {
-            if (FederatedAuthentication.WSFederationAuthenticationModule.RequireHttps && !filterContext.HttpContext.Request.IsSecureConnection)
-            {
-                throw new InvalidOperationException(string.Format(CultureInfo.CurrentUICulture, "https is required to browse the page: '{0}'.", filterContext.HttpContext.Request.Url.AbsoluteUri));
-            }
-
             if (!filterContext.HttpContext.User.Identity.IsAuthenticated)
             {
                 AuthenticateUser(filterContext, this.Realm);
