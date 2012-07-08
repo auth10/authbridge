@@ -25,36 +25,14 @@
 
         private static void AuthenticateUser(AuthorizationContext context, string realm)
         {
-            var returnUrl = GetReturnUrl(context.RequestContext);
-
             // user is not authenticated and it's entering for the first time
             var fam = FederatedAuthentication.WSFederationAuthenticationModule;
             var signIn = new SignInRequestMessage(new Uri(fam.Issuer), realm ?? fam.Realm)
             {
-                Context = returnUrl.ToString(),
-                Reply = returnUrl.ToString()
+                Context = "ru=" + context.HttpContext.Request.Path
             };
 
             context.Result = new RedirectResult(signIn.WriteQueryString());
-        }
-
-        private static Uri GetReturnUrl(RequestContext context)
-        {
-            var request = context.HttpContext.Request;
-            var reqUrl = request.Url;
-            var wreply = new StringBuilder();
-
-            wreply.Append(reqUrl.Scheme);     // e.g. "http"
-            wreply.Append("://");
-            wreply.Append(request.Headers["Host"] ?? reqUrl.Authority);
-            wreply.Append(request.RawUrl);
-
-            if (!request.ApplicationPath.EndsWith("/", StringComparison.OrdinalIgnoreCase))
-            {
-                wreply.Append("/");
-            }
-
-            return new Uri(wreply.ToString());
         }
     }
 }

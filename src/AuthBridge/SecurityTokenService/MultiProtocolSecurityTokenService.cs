@@ -36,7 +36,22 @@
 
             var scope = new Scope(request.AppliesTo.Uri.OriginalString, SecurityTokenServiceConfiguration.SigningCredentials);
             scope.TokenEncryptionRequired = false;
-            scope.ReplyToAddress = string.IsNullOrEmpty(request.ReplyTo) ? scope.AppliesToAddress : request.ReplyTo;
+            
+            string replyTo;
+            if (!string.IsNullOrEmpty(request.ReplyTo)) 
+            {
+                replyTo = request.ReplyTo;
+            }
+            else if (this.scopeModel.Url != null)
+            {
+                replyTo = this.scopeModel.Url.ToString();
+            }
+            else
+            {
+                replyTo = scope.AppliesToAddress;
+            }
+            
+            scope.ReplyToAddress = replyTo;
 
             return scope;
         }
