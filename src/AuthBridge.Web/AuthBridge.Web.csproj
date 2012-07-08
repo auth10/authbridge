@@ -41,10 +41,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClaimsPolicyEngine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\ClaimsPolicyEngine.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.IdentityModel.3.5.0\lib\Microsoft.IdentityModel.dll</HintPath>
@@ -111,7 +107,6 @@
     <Content Include="Content\images\liveid.png" />
     <Content Include="Content\images\twitter.png" />
     <Content Include="Content\images\yahoo.gif" />
-    <Content Include="Content\js\openid-jquery.js" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Views\Authentication\Authenticate.aspx" />
@@ -127,6 +122,10 @@
     <ProjectReference Include="..\AuthBridge\AuthBridge.csproj">
       <Project>{97A8192D-5E2D-4D6B-A450-1166B65CF564}</Project>
       <Name>AuthBridge</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClaimsPolicyEngine\ClaimsPolicyEngine.csproj">
+      <Project>{09FCB3DD-B111-439F-8574-ED024064906C}</Project>
+      <Name>ClaimsPolicyEngine</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
