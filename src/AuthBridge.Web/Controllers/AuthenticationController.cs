@@ -98,10 +98,12 @@
             outputIdentity.Claims.Add(new Claim(ClaimTypes.AuthenticationInstant, DateTime.Now.ToString("o"), ClaimValueTypes.Datetime, this.multiProtocolServiceProperties.Identifier.ToString()));
 
             var sessionToken = new SessionSecurityToken(new ClaimsPrincipal(new IClaimsIdentity[] { outputIdentity }));
-            FederatedAuthentication.SessionAuthenticationModule.CookieHandler.RequireSsl = false;
+            FederatedAuthentication.SessionAuthenticationModule.CookieHandler.RequireSsl = !HttpContext.IsDebuggingEnabled;
             FederatedAuthentication.WSFederationAuthenticationModule.SetPrincipalAndWriteSessionToken(sessionToken, true);
 
+            // TODO: sign context cookie to avoid tampering with this value
             Response.Redirect(this.federationContext.OriginalUrl, false);
+            this.federationContext.Destroy();
             HttpContext.ApplicationInstance.CompleteRequest();
         }
 

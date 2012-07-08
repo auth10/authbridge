@@ -1,9 +1,12 @@
 ﻿namespace AuthBridge.Web.Services
 {
     using System.Web;
+    using System;
 
     public class FederationContext : IFederationContext
     {
+        // TODO: sign context cookie to avoid tampering with its values
+
         public string Realm
         {
             get { return HttpUtility.UrlDecode(this.GetValue("wtrealm")); }
@@ -47,6 +50,12 @@
         {
             FederationCookie.Values[key] = value;
             HttpContext.Current.Response.Cookies.Set(FederationCookie);
+        }
+
+        public void Destroy()
+        {
+            FederationCookie.Expires = DateTime.Now.AddDays(-1);
+            HttpContext.Current.Response.Cookies.Add(FederationCookie);
         }
     }
 }

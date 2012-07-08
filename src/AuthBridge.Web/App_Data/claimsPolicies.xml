@@ -40,6 +40,7 @@
       <issuer uri="urn:Facebook" thumbprint="" displayName="Facebook"/>
       <issuer uri="urn:Twitter" thumbprint="" displayName="Twitter"/>
       <issuer uri="urn:Google" thumbprint="" displayName="Google"/>
+      <issuer uri="urn:IdentityServer" thumbprint="" displayName="IdentityServer"/>
     </issuers>
     <rules>
       <rule assertionsMatch="any">
@@ -115,6 +116,19 @@
       <rule assertionsMatch="any">
         <input>
           <claim type="google.email" issuer="Google" value="*"/>
+        </input>
+        <output type="email" copyFrom="INPUT_VALUE"/>
+      </rule>
+
+      <rule assertionsMatch="any">
+        <input>
+          <claim type="nameidentifier" issuer="IdentityServer" value="*"/>
+        </input>
+        <output type="nameidentifier" copyFrom="INPUT_VALUE"/>
+      </rule>
+      <rule assertionsMatch="any">
+        <input>
+          <claim type="email" issuer="IdentityServer" value="*"/>
         </input>
         <output type="email" copyFrom="INPUT_VALUE"/>
       </rule>
