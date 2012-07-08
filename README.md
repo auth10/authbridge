@@ -12,7 +12,15 @@ An implementation of a bridge written in ASP.NET/C# using [WIF](http://msdn.micr
 * Extensibility points to add more protocols
 * Attribute transformation rule engine to normalize attributes coming from different identity providers
 
-##Getting Started
+##Demo
+
+AuthBridge has been deployed to AppHarbor together with a sample application
+
+https://authbridge-sample.apphb.com/
+
+##Deploy it on your own
+
+### Deploy locally on IIS
 
 1. Download the code
 ```
@@ -28,6 +36,12 @@ git clone https://github.com/auth10/authbridge.git
   * Add an application as a new [scope](https://github.com/auth10/authbridge/blob/master/src/AuthBridge.Web/Web.config#L93). Note: `identifier` needs to match the "realm" paremeter sent by the application and the uri is the endpoint where the token will be POSTed to.
   * You can decide to use or not the attribute rule transformation engine (`useClaimsPolicyEngine`) per application. If you do, the rule are stored in an XML file on `App_Data`  
 5. Create an ASP.NET application with Visual Studio or use the SampleRP that is part of the code and create a trust relationship with AuthBridge. FederationMetadata is available @ http://yourhostname/FederationMetadata/2007-06/FederationMetadata.xml
+
+### Deploy to the Cloud
+
+AuthBridge is ready to be deployed to .NET PaaS like AppHabor or Windows Azure Web Sites. Although currently there is an issue with Google OpenID provider and the discovery process in DotNetOpenAuth that throws an exception.
+
+There is no database dependency since the configuration is stored on Web.config.
 
 ##FAQ
 
