@@ -33,25 +33,21 @@ git clone https://github.com/auth10/authbridge.git
 
 ### How it compares with [DotNetOpenAuth](http://www.dotnetopenauth.net)?
 
-[DotNetOpenAuth](http://www.dotnetopenauth.net) is a library that simplifies writing OAuth and OpenID clients and servers. AuthBridge builds on top of it and adds support for WS-Federation protocol with SAML tokens which is generally used across Microsoft products like SharePoint, Windows Azure Active Directory, ASP.NET, etc. AuthBridge is a library and a server at the same time that will run on its own host to act as a federation hub between your applications and identity providers.
+[DotNetOpenAuth](http://www.dotnetopenauth.net) is a library that simplifies writing OAuth and OpenID clients and servers. AuthBridge builds on top of it and adds support for the WS-Federation protocol with SAML tokens which is generally used across Microsoft products like SharePoint, Windows Azure Active Directory, ASP.NET, etc. WS-Federation is also the only protocol supported by WIF (in the release version). AuthBridge is a library and a server at the same time that will run on its own host to act as a federation hub between your applications and identity providers.
 
 ### How it compares with [SocialAuth.NET](http://code.google.com/p/socialauth-net/)?
 
-[SocialAuth.NET](http://code.google.com/p/socialauth-net/) is a library that focuses on social integration using OAuth. It is similar to DotNetOpenAuth but it born as a port of its Java counterpart. They also have a separate STS project that speaks WS-Federation to be able to integrate SocialAuth with SharePoint. In that sense, AuthBridge is similar to SocialAuth, except that AuthBridge supports more protocols on the identity provider side (so that you can integrate with enterprise identity providers like ADFS, SiteMinder, Ping, etc.)
+[SocialAuth.NET](http://code.google.com/p/socialauth-net/) is a library that focuses on social integration using OAuth. It is similar to DotNetOpenAuth but it was born as a port of its Java counterpart. They also have a separate STS project that implements WS-Federation to be able to integrate SocialAuth with SharePoint. In that sense, AuthBridge is similar to SocialAuth, except that AuthBridge currently supports more protocols on the identity provider side (so that you can integrate with enterprise identity providers like ADFS, SiteMinder, Ping, etc.)
 
 ### How it compares with [Windows Azure Active Directory](https://www.windowsazure.com/en-us/home/features/identity/) (previously known as Windows Azure Access Control Service)?
 
-[Windows Azure Active Directory](https://www.windowsazure.com/en-us/home/features/identity/) (WAAD) is a cloud service run by Microsoft. In essence it's similar to what AuthBridge provides (it's a federation provider that sits between your apps and identity providers), however WAAD is a cloud service and that means that it has been thoroughly tested in terms of performance, security and scalability. AuthBridge has not gone through all that (yet). WAAD is being used extensively by millions of customers (Office365 and Windows Azure). If you are looking for a production ready service, then WAAD would be the right choice. 
+[Windows Azure Active Directory](https://www.windowsazure.com/en-us/home/features/identity/) (WAAD) is a cloud service run by Microsoft. It's similar to what AuthBridge in the ultimate purpose: it's a federation provider that sits between your apps and identity providers. However, WAAD is a cloud service and that means that it has been thoroughly tested in terms of performance, security and scalability; and it is also operated by Microsoft. AuthBridge has not gone through any of that rigorous testing and you are responsible for hosting it yourself. WAAD is being used extensively by millions of customers (Office365 and Windows Azure). If you are looking for a production ready service, then WAAD would be a good choice. 
 
-Also in the future WAAD will also provide a "Graph" API and syncronization capabilities with the on-premise AD. If you want to know more about it read ["What is Windows Azure Active Directory"](http://blog.auth10.com/2012/06/13/what-is-windows-azure-active-directory/) and ["Reimagining Active Directory for the Social Enterprise Part I"](http://blogs.msdn.com/b/windowsazure/archive/2012/05/23/reimagining-active-directory-for-the-social-enterprise-part-1.aspx) and ["Reimagining Active Directory for the Social Enterprise Part II"] (http://blogs.msdn.com/b/windowsazure/archive/2012/06/19/reimagining-active-directory-for-the-social-enterprise-part-2.aspx). 
+Also, in the future WAAD will also provide a "Graph" API and syncronization capabilities with an on-premises AD. If you want to know more about it read ["What is Windows Azure Active Directory"](http://blog.auth10.com/2012/06/13/what-is-windows-azure-active-directory/) and ["Reimagining Active Directory for the Social Enterprise Part I"](http://blogs.msdn.com/b/windowsazure/archive/2012/05/23/reimagining-active-directory-for-the-social-enterprise-part-1.aspx) and ["Reimagining Active Directory for the Social Enterprise Part II"] (http://blogs.msdn.com/b/windowsazure/archive/2012/06/19/reimagining-active-directory-for-the-social-enterprise-part-2.aspx). 
 
 ### How it compares with [Auth10](http://auth10.com)?
 
-[Auth10](http://auth10.com) is a tool that aims to simplify and ease the adoption of federated claims based identity by providing recipes for most common scenarios (cloud, mobile, different platforms and languages, different identity providers, etc.). It is the dashboard for the federation provider. It currently runs on top of Windows Azure Active Directory but it might run on top of other "Fedeation Providers" like ADFS or even AuthBridge if it gets a critical mass.
-
-### How it compares with JanRain Engage?
-
-[JanRain](http://janrain.com/) provides a third party solution for handling Social Login, Social Sharing, Social Analytics and more with their Janrain Engage product. They will act as a hub between your apps and the social identity providers. It's similar in that sense to SocialAuth.NET and DotNetOpenAuth but it's a cloud service with all that means. AuthBridge is a library and a server that will provide some of the featuress of Janrain Engage (mostly on providing attributes for the user coming from the social identity providers) but Janrain implements a propietary protocol to get those into your app (it's a simple protocol based on HTTP). AuthBridge relies on WS-Federation, hence it is ideal to integrate with Microsoft-related stuff. 
+[Auth10](http://auth10.com) is a set of tools that aim at dramatically simplifying the adoption of federated idenitity solutions. It provides automation for the most common scenarios (e.g. SharePoint, cloud, mobile, different platforms and languages, different identity providers, etc.). Think of Auth10 as a really smart dashboard on top of a Federation Provider. It currently runs on top of Windows Azure Active Directory but it could potentially run on top of other "Fedeation Providers" like ADFS or even AuthBridge.
 
 ### How it compares with IdentityServer?
 
@@ -67,7 +63,7 @@ Also in the future WAAD will also provide a "Graph" API and syncronization capab
 
 ## Credits
 
-Some of the code was extracted from a proof of concept we did couple of years ago with Microsoft together with some Southworks devs like @jpgd, @anero79
+Some of the code was extracted from a proof of concept we did a couple of years ago with Microsoft, together with @jpgd and @anero79.
 
 ## License
 
