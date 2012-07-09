@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>AuthBridge by auth10</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>AuthBridge</h1>
+          <h2>Connect your apps with identity providers using OAuth, OpenID, WS-Fed and any other protocol</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/auth10/authbridge/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/auth10/authbridge/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/auth10/authbridge" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <p>AuthBridge is a server written in ASP.NET/C# using <a href="http://msdn.microsoft.com/en-us/security/aa570351.aspx">WIF</a> and <a href="http://www.dotnetopenauth.net">DotNetOpenAuth</a>, that speaks WS-Federation and SAML tokens on one side and OpenID, OAuth, WS-Federation or any other protocol on the identity provider. </p>
+
+<p><img src="http://puu.sh/GzU1" alt=""></p>
+
+<p><strong>DISCLAIMER:</strong> AuthBridge has not gone through any rigorous testing and you are responsible for hosting it yourself. If you are looking for a production ready service Windows Azure Active Directory would be a good choice. </p>
+
+<h2>Features</h2>
+
+<ul>
+<li>Support Social Identity Providers: for Facebook (OAuth 2), Google (OpenID), Yahoo (OpenID), Twitter (OAuth 1.0a), Windows Live (OAuth 2). More can be added easily.</li>
+<li>Support for Enterprise Identity Providers like ADFS or IdentityServer using WS-Federation Protocol and SAML 1.1 or 2.0 Tokens. SAML 2.0 <em>protocol</em> could be added easily using the WIF SAML Extensions</li>
+<li>Support for Single Sign On</li>
+<li>Extensibility points to add more protocols</li>
+<li>Attribute transformation rule engine to normalize attributes coming from different identity providers</li>
+</ul><h2>Demo</h2>
+
+<p>AuthBridge has been deployed to AppHarbor together with a sample application</p>
+
+<h3><a href="https://authbridge-sample.apphb.com/">https://authbridge-sample.apphb.com/</a></h3>
+
+<h2>FAQ</h2>
+
+<h3>How it compares with <a href="http://www.dotnetopenauth.net">DotNetOpenAuth</a>?</h3>
+
+<p><a href="http://www.dotnetopenauth.net">DotNetOpenAuth</a> is a library that simplifies writing OAuth and OpenID clients and servers. AuthBridge builds on top of it and adds support for the WS-Federation protocol with SAML tokens which is generally used across Microsoft products like SharePoint, Windows Azure Active Directory, ASP.NET, etc. WS-Federation is also the only protocol supported by WIF (in the release version). AuthBridge is a library and a server at the same time that will run on its own host to act as a federation hub between your applications and identity providers.</p>
+
+<h3>How it compares with <a href="http://code.google.com/p/socialauth-net/">SocialAuth.NET</a>?</h3>
+
+<p><a href="http://code.google.com/p/socialauth-net/">SocialAuth.NET</a> is a library that focuses on social integration using OAuth. It is similar to DotNetOpenAuth but it was born as a port of its Java counterpart. They also have a separate STS project that implements WS-Federation to be able to integrate SocialAuth with SharePoint. In that sense, AuthBridge is similar to SocialAuth, except that AuthBridge currently supports more protocols on the identity provider side (so that you can integrate with enterprise identity providers like ADFS, SiteMinder, Ping, etc.)</p>
+
+<h3>How it compares with <a href="https://www.windowsazure.com/en-us/home/features/identity/">Windows Azure Active Directory</a> (previously known as Windows Azure Access Control Service)?</h3>
+
+<p><a href="https://www.windowsazure.com/en-us/home/features/identity/">Windows Azure Active Directory</a> (WAAD) is a cloud service run by Microsoft. It's similar to what AuthBridge in the ultimate purpose: it's a federation provider that sits between your apps and identity providers. However, WAAD is a cloud service and that means that it has been thoroughly tested in terms of performance, security and scalability; and it is also operated by Microsoft. AuthBridge has not gone through any of that rigorous testing and you are responsible for hosting it yourself. WAAD is being used extensively by millions of customers (Office365 and Windows Azure). If you are looking for a production ready service, then WAAD would be a good choice. </p>
+
+<p>Also, in the future WAAD will also provide a "Graph" API and syncronization capabilities with an on-premises AD. If you want to know more about it read <a href="http://blog.auth10.com/2012/06/13/what-is-windows-azure-active-directory/">"What is Windows Azure Active Directory"</a> and <a href="http://blogs.msdn.com/b/windowsazure/archive/2012/05/23/reimagining-active-directory-for-the-social-enterprise-part-1.aspx">"Reimagining Active Directory for the Social Enterprise Part I"</a> and <a href="http://blogs.msdn.com/b/windowsazure/archive/2012/06/19/reimagining-active-directory-for-the-social-enterprise-part-2.aspx">"Reimagining Active Directory for the Social Enterprise Part II"</a>. </p>
+
+<h3>How it compares with <a href="http://auth10.com">Auth10</a>?</h3>
+
+<p><a href="http://auth10.com">Auth10</a> is a set of tools that aim at dramatically simplifying the adoption of federated idenitity solutions. It provides automation for the most common scenarios (e.g. SharePoint, cloud, mobile, different platforms and languages, different identity providers, etc.). Think of Auth10 as a really smart dashboard on top of a Federation Provider. It currently runs on top of Windows Azure Active Directory but it could potentially run on top of other "Fedeation Providers" like ADFS or even AuthBridge.</p>
+
+<h3>How it compares with IdentityServer?</h3>
+
+<p><a href="http://identityserver.codeplex.com/">IdentityServer</a> is an identity provider that supports Membership provider databases and various protocols to get tokes out of it. It's complimentary to AuthBridge. If IdentityServer is the open source Identity Provider, AuthBridge is the open source Federation Provider. AuthBridge can be configured to trust IdentityServer as well as ADFS.</p>
+
+<h2>Deploy it on your own</h2>
+
+<h3>Deploy locally on IIS</h3>
+
+<ol>
+<li>Download the code
+<code>
+git clone https://github.com/auth10/authbridge.git
+</code>
+</li>
+<li><p>Create a site pointing to <code>AuthBridge.Web</code> in IIS and assign it a host header like <code>identity.bridge.com</code> (otherwise the social identity providers won't work). If it's production use SSL.</p></li>
+<li><p>Create your own certificate. Instructions: <a href="https://gist.github.com/3066840">https://gist.github.com/3066840</a></p></li>
+<li>
+<p>Edit the <a href="https://github.com/auth10/authbridge/blob/master/src/AuthBridge.Web/Web.config">Web.Config</a> </p>
+
+<ul>
+<li>Change the certificate file  <a href="https://github.com/auth10/authbridge/blob/master/src/AuthBridge.Web/Web.config#L64">signingCertificateFile</a> (you can also use a certificate in the machine store)</li>
+<li>Change the <a href="https://github.com/auth10/authbridge/blob/master/src/AuthBridge.Web/Web.config#L65">app ids and secrets</a> for the identity providers </li>
+<li>Add an application as a new <a href="https://github.com/auth10/authbridge/blob/master/src/AuthBridge.Web/Web.config#L93">scope</a>. Note: <code>identifier</code> needs to match the "realm" paremeter sent by the application and the uri is the endpoint where the token will be POSTed to.</li>
+<li>You can decide to use or not the attribute rule transformation engine (<code>useClaimsPolicyEngine</code>) per application. If you do, the rule are stored in an XML file on <code>App_Data</code><br>
+</li>
+</ul>
+</li>
+<li><p>Create an ASP.NET application with Visual Studio or use the SampleRP that is part of the code and create a trust relationship with AuthBridge. FederationMetadata is available @ http://yourhostname/FederationMetadata/2007-06/FederationMetadata.xml</p></li>
+</ol><h3>Deploy to the Cloud</h3>
+
+<p>AuthBridge is ready to be deployed to .NET PaaS like AppHabor or Windows Azure Web Sites. Although currently there is an issue with Google OpenID provider and the discovery process in DotNetOpenAuth that throws an exception in Windows Azure Web Sites.</p>
+
+<p>Follow the instructions 3 and 4 above before deploying it.</p>
+
+<p>Note: there is no database dependency since the configuration is stored on Web.config. There is an extensibility point to change that but no db provider implemented yet.</p>
+
+<h2>TODO</h2>
+
+<ul>
+<li>Exception handling can be enhanced with more detailed errors</li>
+<li>No performance/stress test has been done</li>
+<li>No threats and countermeasures analysis has been done</li>
+<li>Allow configuring allowed identity providers per application</li>
+<li>Signing federation context cookie to avoid tampering</li>
+<li>Implement a config provider that uses blob storage (like s3, azure)</li>
+<li>Implement SAML protocol provider</li>
+<li>Implement a database store for claim rules</li>
+<li>Implement other protocols</li>
+</ul><h2>Credits</h2>
+
+<p>Some of the code was extracted from a proof of concept we did a couple of years ago with Microsoft, together with @jpgd and @anero79.</p>
+
+<h2>License</h2>
+
+<p>MIT</p>
+
+<p>Copyright (2012) Auth10 LLC</p>
+        </section>
+
+        <footer>
+          AuthBridge is maintained by <a href="https://github.com/auth10">auth10</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
