@@ -87,16 +87,11 @@ git clone https://github.com/auth10/authbridge.git
 </li>
 <li><p>Create a site pointing to <code>AuthBridge.Web</code> in IIS and assign it a host header like <code>identity.bridge.com</code> (otherwise the social identity providers won't work). If it's production use SSL.</p></li>
 <li><p>Create your own certificate. Instructions: <a href="https://gist.github.com/3066840">https://gist.github.com/3066840</a></p></li>
-<li>
-<p>Edit the <a href="https://github.com/auth10/authbridge/blob/master/src/AuthBridge.Web/Web.config">Web.Config</a> </p>
 
-<ul>
-<li>Change the certificate file  <a href="https://github.com/auth10/authbridge/blob/master/src/AuthBridge.Web/Web.config#L64">signingCertificateFile</a> (you can also use a certificate in the machine store)</li>
-<li>Change the <a href="https://github.com/auth10/authbridge/blob/master/src/AuthBridge.Web/Web.config#L65">app ids and secrets</a> for the identity providers </li>
-<li>Add an application as a new <a href="https://github.com/auth10/authbridge/blob/master/src/AuthBridge.Web/Web.config#L93">scope</a>. Note: <code>identifier</code> needs to match the "realm" paremeter sent by the application and the uri is the endpoint where the token will be POSTed to.</li>
-<li>You can decide to use or not the attribute rule transformation engine (<code>useClaimsPolicyEngine</code>) per application. If you do, the rule are stored in an XML file on <code>App_Data</code><br>
-</li>
-</ul>
+<li><p>Change the certificate file  <a href="https://github.com/auth10/authbridge/blob/master/src/AuthBridge.Web/Web.config#L64">signingCertificateFile</a> (you can also use a certificate in the machine store)</p></li>
+<li><p>Change the <a href="https://github.com/auth10/authbridge/blob/master/src/AuthBridge.Web/Web.config#L65">app ids and secrets</a> for the identity providers</p></li>
+<li><p>Add an application as a new <a href="https://github.com/auth10/authbridge/blob/master/src/AuthBridge.Web/Web.config#L93">scope</a>. Note: <code>identifier</code> needs to match the "realm" paremeter sent by the application and the uri is the endpoint where the token will be POSTed to.</p></li>
+<li><p>You can decide to use or not the attribute rule transformation engine (<code>useClaimsPolicyEngine</code>) per application. If you do, the rule are stored in an XML file on <code>App_Data</code></p>
 </li>
 <li><p>Create an ASP.NET application with Visual Studio or use the SampleRP that is part of the code and create a trust relationship with AuthBridge. FederationMetadata is available @ http://yourhostname/FederationMetadata/2007-06/FederationMetadata.xml</p></li>
 </ol><h3>Deploy to the Cloud</h3>
