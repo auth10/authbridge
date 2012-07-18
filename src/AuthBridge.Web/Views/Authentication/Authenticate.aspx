@@ -23,7 +23,9 @@
                             href="authenticate?whr=urn:Twitter" title="Twitter"></a>    
                         <a class="button"
                             href="authenticate?whr=urn:IdentityServer" title="IdentityServer">Identity Server (WS-Fed + SAML)</a>    
-                        
+                        <a class="button"
+                            href="authenticate?whr=urn:office365:auth10preview" title="WindowsAzure AD">Windows Azure Active Directory (Office 365)</a>    
+                                                
                                                         
                 </div>
             </div>

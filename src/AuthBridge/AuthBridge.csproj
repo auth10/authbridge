@@ -192,6 +192,7 @@
     <Compile Include="Protocols\OpenId\GoogleHandler.cs" />
     <Compile Include="Protocols\ProtocolHandlerBase.cs" />
     <Compile Include="PolicyStoreFactory.cs" />
+    <Compile Include="Protocols\WSFed\WindowsAzureADHandler.cs" />
     <Compile Include="Protocols\WSFed\WSFedHandler.cs" />
     <Compile Include="Utilities\CertificateUtil.cs" />
     <Compile Include="Utilities\Common.cs" />
